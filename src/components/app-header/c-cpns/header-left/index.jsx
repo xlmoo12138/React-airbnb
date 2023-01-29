@@ -1,4 +1,4 @@
-import IconLogo from '@/assets/svg/icon_logo'
+import IconLogo from '@/assets/svg/icon-logo'
 import React, { memo } from 'react'
 import { LeftWrapper } from './style'
 

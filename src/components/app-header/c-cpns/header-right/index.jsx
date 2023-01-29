@@ -1,6 +1,6 @@
-import IconAvatar from '@/assets/svg/icon_avatar'
-import IconGlobal from '@/assets/svg/icon_global'
-import IconMenu from '@/assets/svg/icon_menu'
+import IconAvatar from '@/assets/svg/icon-avatar'
+import IconGlobal from '@/assets/svg/icon-global'
+import IconMenu from '@/assets/svg/icon-menu'
 import React, { memo } from 'react'
 import { RightWrapper } from './style'
 
