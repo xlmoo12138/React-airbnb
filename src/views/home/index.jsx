@@ -1,10 +1,12 @@
 import React, { memo } from 'react'
+import HomeBanner from './c-cpns/home-banner'
+import { HomeWrapper } from './style'
 const Home = memo(() => {
 
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <HomeWrapper>
+      <HomeBanner/>
+    </HomeWrapper>
   )
 })
 
