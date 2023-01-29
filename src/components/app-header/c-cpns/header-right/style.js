@@ -54,6 +54,39 @@ export const RightWrapper = styled.div`
 
     ${props => props.theme.mixin.boxShadow};
 
+    .panel {
+      position: absolute;
+      top: 52px;
+      right: 0;
+      width: 240px;
+      height: 240px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 4px rgba(0,0,0,.18);
+      color: #555;
+
+      .top, .bottom {
+        padding: 8px 0;
+      }
+
+      .item {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 16px;
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+
+      .top {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .top .register {
+        color: ${props => props.theme.text.secondaryColor};
+      }
+    }
   }
 
 `
