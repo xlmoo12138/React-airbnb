@@ -5,7 +5,9 @@ import { LeftWrapper } from './style'
 const HeaderLeft = memo(() => {
   return (
     <LeftWrapper>
-      <IconLogo/>
+      <div className="logo">
+        <IconLogo/>
+      </div>
     </LeftWrapper>
   )
 })
