@@ -5,7 +5,10 @@ const Home = memo(() => {
 
   return (
     <HomeWrapper>
-      <HomeBanner/>
+      <HomeBanner />
+      <div className="content">
+        content
+      </div>
     </HomeWrapper>
   )
 })
