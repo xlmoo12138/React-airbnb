@@ -8,6 +8,7 @@ import App from '@/App';
 import store from './store';
 import theme from './assets/theme';
 import 'normalize.css'
+import 'antd/dist/reset.css'
 import './assets/css/index.less'
 
 // @ => src: webpack
