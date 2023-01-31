@@ -3,7 +3,6 @@ import SectionHeader from '@/components/section-header'
 import { fetchHomeDataAction } from '@/store/modules/home'
 import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import Rating from '@mui/material/Rating';
 
 import HomeBanner from './c-cpns/home-banner'
 import { HomeWrapper } from './style'
@@ -34,8 +33,6 @@ const Home = memo(() => {
           </ul>
         </div>
       </div>
-
-      <Rating name="read-only" value={5} readOnly />
     </HomeWrapper>
   )
 })
