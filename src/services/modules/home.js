@@ -1,5 +1,10 @@
 import lmRequest from "..";
 
+export function getDiscountData() {
+  return lmRequest.get({
+    url: "/home/discount"
+  })
+}
 
 export function getHomeGoodPriceData() {
   return lmRequest.get({
@@ -10,11 +15,5 @@ export function getHomeGoodPriceData() {
 export function getHomeHighScoreData() {
   return lmRequest.get({
     url: "/home/highscore"
-  })
-}
-
-export function getDiscountData() {
-  return lmRequest.get({
-    url: "/home/discount"
   })
 }
