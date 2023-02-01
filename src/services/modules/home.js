@@ -12,3 +12,9 @@ export function getHomeHighScoreData() {
     url: "/home/highscore"
   })
 }
+
+export function getDiscountData() {
+  return lmRequest.get({
+    url: "/home/discount"
+  })
+}
