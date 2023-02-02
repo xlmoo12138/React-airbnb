@@ -6,6 +6,12 @@ export function getDiscountData() {
   })
 }
 
+export function getHomehotRecommendData() {
+  return lmRequest.get({
+    url: "/home/hotrecommenddest"
+  })
+}
+
 export function getHomeGoodPriceData() {
   return lmRequest.get({
     url: "/home/goodprice"
