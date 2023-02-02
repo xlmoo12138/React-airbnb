@@ -1,13 +1,12 @@
-import SectionHeader from '@/components/section-header'
-import SectionRooms from '@/components/section-rooms'
-import SectionTabs from '@/components/section-tabs'
 import { fetchHomeDataAction } from '@/store/modules/home'
-import React, { memo, useCallback, useEffect, useState } from 'react'
+import React, { memo, useEffect} from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 import HomeBanner from './c-cpns/home-banner'
 import HomeSectionV1 from './c-cpns/home-section-v1'
+import HomeSectionV2 from './c-cpns/home-section-v2'
 import { HomeWrapper } from './style'
+import { isEmptyO } from '@/utils'
 
 const Home = memo(() => {
   /** 从redux中获取数据 */
@@ -18,12 +17,6 @@ const Home = memo(() => {
   }), shallowEqual)
 
 
-  /**数据的转换 */
-  const [name, setName] = useState("佛山")
-  const tabNames = discountInfo.dest_address?.map(item => item.name)
-  const tabClickHandle = useCallback(function (index, name) {
-    setName(name)
-  }, [])
   /** 派发异步的事件:  发送网络请求 */
   const dispatch = useDispatch()
   useEffect(() => {
@@ -34,13 +27,15 @@ const Home = memo(() => {
     <HomeWrapper>
       <HomeBanner />
       <div className="content">
-        <div className="discount">
+        {/* 折扣数据 */}
+        {/* <div className="discount">
           <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle} />
           <SectionTabs tabNames={tabNames} tabClick={tabClickHandle} />
           <SectionRooms roomlist={discountInfo.dest_list?.[name]} itemWidth="33.33%" />
-        </div>
-        <HomeSectionV1 infoData={ goodPriceInfo } />
-        <HomeSectionV1 infoData={ highScoreInfo } />
+        </div> */}
+        { isEmptyO(discountInfo) && <HomeSectionV2 infoData={ discountInfo } />}
+        { isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={ goodPriceInfo } />}
+        { isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={ highScoreInfo } />}
       </div>
     </HomeWrapper>
   )
