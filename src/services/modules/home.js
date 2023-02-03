@@ -23,3 +23,9 @@ export function getHomeHighScoreData() {
     url: "/home/highscore"
   })
 }
+
+export function getHomeLongforData() {
+  return lmRequest.get({
+    url: "/home/longfor"
+  })
+}

@@ -12,7 +12,6 @@ const ScrollView = memo((props) => {
   const [posIndex, setPosIndex] = useState(0)
   const totalDistanceRef = useRef()
 
-
   /** 组件渲染完毕，判断是否显示右侧的按钮 */
   const scrollContentRef = useRef()
   useEffect(() => {
