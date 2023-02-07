@@ -6,10 +6,14 @@ import { TabsWrapper } from './style'
 
 const SectionTabs = memo((props) => {
   const { tabNames = [], tabClick } = props
-  const [ currentIndex, setCurrentIndex ] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  // tabNames.push('abc')
+  // tabNames.push('bca')
+  // tabNames.push('cba')
 
   function itemClickHandle(index, item) {
-    console.log(index);
+    // console.log(index);
     setCurrentIndex(index)
     tabClick(index, item)
   }
