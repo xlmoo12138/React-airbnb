@@ -12,7 +12,7 @@ const EntireFilter = memo((props) => {
       const itemIndex = newItems.findIndex(filterItem => filterItem === item)
       newItems.splice(itemIndex, 1)
     } else { // 添加操作
-      newItems.push(item)
+      newItems.push(item) 
     }
     setSelectItems(newItems)
   }
