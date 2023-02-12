@@ -16,12 +16,14 @@ export const changeTotalCountAction = (totalCount) => ({
   totalCount
 })
 
-export function fetchRoomListAction() {
+export const fetchRoomListAction = (page = 0) => {
   // 返回新的函数
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
+    // 0.修改currentPage
+    dispatch(changeCurrentPageAction(page))
     // 1.根据页码获取最新数据
-    const currentPage = getState().entire.currentPage
-    const res = await getEntireRoomList(currentPage * 20)
+    // const currentPage = getState().entire.currentPage
+    const res = await getEntireRoomList(page * 20)
 
     // 2.获取到最新的数据，保存到redux的store中
     const roomList = res.list
