@@ -31,7 +31,6 @@ const ScrollView = memo((props) => {
     scrollContentRef.current.style.transform = `translate(-${newOffsetLeft}px)`
     setPosIndex(newIndex)
     /** 是否继续显示左边、右边按钮 */
-    console.log(totalDistanceRef.current > newOffsetLeft);
     setShowRight(totalDistanceRef.current > newOffsetLeft)
     setShowLeft(newOffsetLeft > 0)
   }

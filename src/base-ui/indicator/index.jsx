@@ -3,7 +3,7 @@ import React, { memo, useEffect, useRef } from 'react'
 import { IndicatorWrapper } from './style'
 
 const Indicator = memo((props) => {
-  const { selectIndex } = props
+  const { selectIndex = 0 } = props
   const contentRef = useRef()
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Indicator = memo((props) => {
     // 5. 改变位置即可
     contentRef.current.style.transform = `translate(${-distance}px)`
   }, [selectIndex])
-  
+
   return (
     <IndicatorWrapper>
       <div className="i-content" ref={contentRef}>
