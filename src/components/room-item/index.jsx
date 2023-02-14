@@ -10,10 +10,11 @@ import Indicator from '@/base-ui/indicator';
 import classNames from 'classnames';
 
 const RoomItem = memo((props) => {
-  const { itemData, itemWidth = "25%" } = props
+  const { itemData, itemWidth = "25%", itemClick } = props
   const [selectIndex, setSelectIndex] = useState(0)
   const sliderRef = useRef()
 
+  /** 事件处理逻辑 */
   function controlClickHandle(isRight = true) {
     // 1.上一个面板 / 下一个面板
     isRight ? sliderRef.current.next() : sliderRef.current.prev()
@@ -26,6 +27,11 @@ const RoomItem = memo((props) => {
     setSelectIndex(newIndex)
   }
 
+  function itemClickHandle() {
+    if (itemClick) itemClick(itemData)
+  }
+
+  /** 子元素赋值 */
   const pictureEl = (
     <div className="cover">
         <img src={itemData.picture_url} alt="" />
@@ -73,6 +79,7 @@ const RoomItem = memo((props) => {
     <ItemWrapper
       verifyColor={itemData?.verify_info?.text_color || "#39576a"}
       itemWidth={itemWidth}
+      onClick={itemClickHandle}
     >
       <div className="inner">
         { !itemData.picture_urls ? pictureEl : sliderEl}
