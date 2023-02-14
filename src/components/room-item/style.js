@@ -70,7 +70,6 @@ export const ItemWrapper = styled.div`
           &.active {
             width: 8px;
             height: 8px;
-            background-color: red;
           }
         }
       }
