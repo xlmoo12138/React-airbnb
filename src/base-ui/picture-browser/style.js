@@ -1,75 +1,72 @@
 import styled from "styled-components";
 
 export const BrowserWrapper = styled.div`
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-
-  background-color: #333;
-
-  .top {
-    position: relative;
-    height: 86px;
-
-
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      z-index: 9;
-      cursor: pointer;
-    }
-
-  }
-
-  .slider {
-    position: relative;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     display: flex;
-    justify-content: center;
-    flex: 1;
+    flex-direction: column;
 
-    .control {
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      justify-content: space-between;
-      color: #fff;
+    background-color: #333;
 
-      .btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 83px;
-        height: 100%;
+    .top {
+      position: relative;
+      height: 86px;
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 25px;
         cursor: pointer;
       }
     }
 
-    .picture {
+    .slider {
       position: relative;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      min-width: 105vh;
+      display: flex;
+      justify-content: center;
+      flex: 1;
 
-      img {
+      .control {
         position: absolute;
-        top: 0;
+        z-index: 1;
         left: 0;
         right: 0;
-        margin: 0 auto;
-        height: 100%;
-        user-select: none;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 83px;
+          height: 100%;
+          cursor: pointer;
+        }
       }
+
+      .picture {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        min-width: 105vh;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          height: 100%;
+          user-select: none;
+        }
 
       /* 动画样式 */
       .pic-enter {
@@ -92,7 +89,54 @@ export const BrowserWrapper = styled.div`
   }
 
   .preview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     margin-top: 10px;
+
+    .info {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      min-width: 105vh;
+      color: #fff;
+
+      .desc {
+        display: flex;
+        justify-content: space-between;
+
+        .toggle {
+          cursor: pointer;
+        }
+      }
+
+      .list {
+        margin-top: 3px;
+        overflow: hidden;
+        transition: height 300ms ease;
+        height: ${props => props.showList ? "67px" : "0"};
+
+        .item {
+          margin-right: 15px;
+          cursor: pointer;
+
+          img {
+            height: 67px;
+            opacity: 0.5;
+          }
+
+          &.active {
+            img {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
   }
 `
