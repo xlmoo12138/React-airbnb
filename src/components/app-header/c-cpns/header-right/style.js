@@ -14,6 +14,7 @@ export const RightWrapper = styled.div`
     justify-content: space-evenly;
 
     .btn {
+      box-sizing: content-box;
       height: 18px;
       line-height: 18px;
       padding: 12px 15px;
@@ -23,16 +24,6 @@ export const RightWrapper = styled.div`
       &:hover {
         background-color: #f5f5f5;
       }
-    }
-
-    .btn-register {
-      margin-left: -8px;
-      padding: 12px 15px;
-    }
-
-    .btn-icon {
-      padding: 14px 20px 10px 20px;
-      margin-left: -8px;
     }
 
   }

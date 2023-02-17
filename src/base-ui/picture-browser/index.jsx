@@ -92,7 +92,7 @@ const PictureBrowser = memo((props) => {
                       onClick={e => bottomClickHandle(index)}
                     >
                       <img src={item} alt="" />
-                    </div>
+                    </div>  
                   )
                 })
               }

@@ -92,17 +92,12 @@ export const BrowserWrapper = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100px;
     margin-top: 10px;
 
     .info {
-      position: absolute;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0 auto;
+      position: relative;
+      width: 300px;
       min-width: 105vh;
       color: #fff;
 
@@ -116,10 +111,15 @@ export const BrowserWrapper = styled.div`
       }
 
       .list {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        right: 0;
+        bottom: 0;
         margin-top: 3px;
         overflow: hidden;
         transition: height 300ms ease;
-        height: ${props => props.showList ? "67px" : "0"};
+        height: ${props => props.showList ? '67px' : '0'};
 
         .item {
           margin-right: 15px;
