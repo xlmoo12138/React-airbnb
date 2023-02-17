@@ -18,7 +18,6 @@ export const SectionsWrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: center;
       padding: 0 30px;
 
       .title {

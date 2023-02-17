@@ -50,14 +50,13 @@ export const RightWrapper = styled.div`
       top: 52px;
       right: 0;
       width: 240px;
-      height: 240px;
       border-radius: 10px;
       background-color: #fff;
       box-shadow: 0 0 4px rgba(0,0,0,.18);
       color: #555;
 
       .top, .bottom {
-        padding: 8px 0;
+        padding: 10px 0;
       }
 
       .item {
@@ -71,6 +70,9 @@ export const RightWrapper = styled.div`
       }
 
       .top {
+        /* display: flex;
+        flex-direction: column;
+        align-items: flex-start; */
         border-bottom: 1px solid #ddd;
       }
 
