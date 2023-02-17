@@ -1,6 +1,8 @@
 import classNames from 'classnames'
-import React, { memo, useState } from 'react'
+import React, { memo, useRef, useState } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
+
+import useScrollPosition from '@/hooks/useScrollPosition'
 import HeaderCenter from './c-cpns/header-center'
 import HeaderLeft from './c-cpns/header-left'
 import HeaderRight from './c-cpns/header-right'
@@ -15,6 +17,14 @@ const AppHeader = memo(() => {
   }), shallowEqual)
 
   const { isFixed } = headerConfig
+
+  /** 监听页面滚动 */
+  const { scrollY } = useScrollPosition()
+  const prevY = useRef(0)
+  /** 在搜索条关闭时，不断记录其值 */
+  if (!isSearch) prevY.current = scrollY
+  /** 在搜索条展示时，滚动距离大于之前记录的距离的30时，关闭搜索条 */
+  if (isSearch && Math.abs(scrollY - prevY.current) > 30) setIsSearch(false)
 
   return (
     <HeaderWrapper className={classNames({ Fixed: isFixed})}>
