@@ -1,9 +1,9 @@
-import RoomItem from '@/components/room-item'
-import { changeDetaiInfoAction } from '@/store/modules/detail'
-import { logDOM } from '@testing-library/react'
 import React, { memo, useCallback } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
+import RoomItem from '@/components/room-item'
+import { changeDetaiInfoAction } from '@/store/modules/detail'
 import { RoomsWrapper } from './style'
 
 const EntireRooms = memo((props) => {
