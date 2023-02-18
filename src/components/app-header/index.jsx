@@ -7,6 +7,7 @@ import HeaderCenter from './c-cpns/header-center'
 import HeaderLeft from './c-cpns/header-left'
 import HeaderRight from './c-cpns/header-right'
 import { HeaderWrapper, SearchAreaWrapper } from './style'
+import { ThemeProvider } from 'styled-components'
 
 const AppHeader = memo(() => {
   /** 定义组件内部状态 */
@@ -16,7 +17,7 @@ const AppHeader = memo(() => {
     headerConfig: state.main.headerConfig
   }), shallowEqual)
 
-  const { isFixed } = headerConfig
+  const { isFixed, topAlpha } = headerConfig
 
   /** 监听页面滚动 */
   const { scrollY } = useScrollPosition()
@@ -26,18 +27,23 @@ const AppHeader = memo(() => {
   /** 在搜索条展示时，滚动距离大于之前记录的距离的30时，关闭搜索条 */
   if (isSearch && Math.abs(scrollY - prevY.current) > 30) setIsSearch(false)
 
+  /** 透明度的逻辑 */
+  const isAlpha = topAlpha && scrollY === 0
+
   return (
-    <HeaderWrapper className={classNames({ Fixed: isFixed})}>
-      <div className="content">
-        <div className="c-top">
-          <HeaderLeft />
-          <HeaderCenter isSearch={isSearch} searchBarClick={ e => setIsSearch(true) } />
-          <HeaderRight />
+    <ThemeProvider theme={{isAlpha}}>
+      <HeaderWrapper className={classNames({ Fixed: isFixed})}>
+        <div className="content">
+          <div className="c-top">
+            <HeaderLeft />
+            <HeaderCenter isSearch={ isAlpha || isSearch} searchBarClick={ e => setIsSearch(true) } />
+            <HeaderRight />
+          </div>
+          <SearchAreaWrapper isSearch={ isAlpha || isSearch} />
         </div>
-        <SearchAreaWrapper isSearch={isSearch} />
-      </div>
-      { isSearch && <div className="cover" onClick={e => setIsSearch(false)}></div> }
-    </HeaderWrapper>
+        { isSearch && <div className="cover" onClick={e => setIsSearch(false)}></div> }
+      </HeaderWrapper>
+    </ThemeProvider>
   )
 })
 
